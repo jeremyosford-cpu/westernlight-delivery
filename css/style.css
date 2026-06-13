@@ -9,7 +9,6 @@ body {
     color: white;
 
     background: url("../images/hero.png") center center / cover no-repeat;
-    background-attachment: fixed;
 }
 
 .navbar {
