@@ -187,69 +187,88 @@ button:hover {
 <script>
 const webhookURL = "https://discord.com/api/webhooks/1515477953365016727/BQOo30012UyZlAOg0lFUVjnh7UozZH5rQ72zWfqAg4QPzR__ea84PIj6j8dYszlKnSDZ";
 
-// ФОРМА 1 — ДОСТАВКА
-document.querySelectorAll("form")[0].addEventListener("submit", async (e) => {
-    e.preventDefault();
+// анти-спам
+let canSend = true;
 
-    const inputs = e.target.querySelectorAll("input, textarea");
+/* ===== ДОСТАВКА ===== */
+document.getElementById("deliveryForm").addEventListener("submit", async (e) => {
+    e.preventDefault();
+    if (!canSend) return;
+
+    canSend = false;
+    setTimeout(() => canSend = true, 5000);
+
+    const i = e.target.querySelectorAll("input, textarea");
 
     const data = {
-        "Ім'я клієнта": inputs[0].value,
-        "Адреса": inputs[1].value,
-        "Тип вантажу": inputs[2].value,
-        "Коментар": inputs[3].value
+        "Ім'я клієнта": i[0].value,
+        "Адреса": i[1].value,
+        "Тип вантажу": i[2].value,
+        "Коментар": i[3].value
     };
 
     await sendToDiscord("🚚 НОВЕ ЗАМОВЛЕННЯ ДОСТАВКИ", data);
+
+    e.target.reset();
 });
 
-// ФОРМА 2 — ВОДІЙ НА ЗАХІД
-document.querySelectorAll("form")[1].addEventListener("submit", async (e) => {
+/* ===== ВОДІЙ ===== */
+document.getElementById("driverForm").addEventListener("submit", async (e) => {
     e.preventDefault();
+    if (!canSend) return;
 
-    const inputs = e.target.querySelectorAll("input, textarea");
+    canSend = false;
+    setTimeout(() => canSend = true, 5000);
+
+    const i = e.target.querySelectorAll("input, textarea");
 
     const data = {
-        "Ім'я замовника": inputs[0].value,
-        "Тип заходу": inputs[1].value,
-        "Дата та час": inputs[2].value,
-        "Місце": inputs[3].value,
-        "Кількість пасажирів": inputs[4].value,
-        "Коментар": inputs[5].value
+        "Ім'я замовника": i[0].value,
+        "Тип заходу": i[1].value,
+        "Дата та час": i[2].value,
+        "Місце": i[3].value,
+        "Кількість пасажирів": i[4].value,
+        "Коментар": i[5].value
     };
 
     await sendToDiscord("🚗 ЗАМОВЛЕННЯ ВОДІЯ НА ЗАХІД", data);
+
+    e.target.reset();
 });
 
-// ОТПРАВКА В DISCORD
+/* ===== DISCORD SEND ===== */
 async function sendToDiscord(title, data) {
-    const fields = Object.entries(data).map(([key, value]) => {
-        return {
-            name: key,
-            value: value || "немає даних",
-            inline: false
-        };
-    });
+    const fields = Object.entries(data).map(([key, value]) => ({
+        name: key,
+        value: value || "немає даних",
+        inline: false
+    }));
 
     const payload = {
         embeds: [{
             title: title,
-            color: 16753920,
+            color: 0xf59e0b,
             fields: fields,
             footer: {
-                text: "WesternLight Logistics"
-            }
+                text: "WesternLight Logistics RP"
+            },
+            timestamp: new Date().toISOString()
         }]
     };
 
-    await fetch(webhookURL, {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify(payload)
-    });
+    try {
+        await fetch(webhookURL, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(payload)
+        });
 
-    alert("Заявку відправлено в Discord!");
+        alert("Заявку відправлено!");
+    } catch (err) {
+        alert("Помилка відправки!");
+        console.error(err);
+    }
 }
 </script>
