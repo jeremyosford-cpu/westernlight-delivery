@@ -138,3 +138,11 @@ footer {
     from {opacity:0; transform:translateY(20px);}
     to {opacity:1; transform:translateY(0);}
 }
+
+label {
+    display:block;
+    margin-top:10px;
+    margin-bottom:5px;
+    color:#f59e0b;
+    font-weight:bold;
+}
