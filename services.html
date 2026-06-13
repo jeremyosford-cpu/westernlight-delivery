@@ -190,17 +190,27 @@ const webhookURL = "https://discord.com/api/webhooks/1515477953365016727/BQOo300
 // анти-спам
 let canSend = true;
 
+/* ===== ID ЗАЯВКИ ===== */
+function generateID() {
+    return "WL-" + Math.floor(Math.random() * 100000);
+}
+
 /* ===== ДОСТАВКА ===== */
 document.getElementById("deliveryForm").addEventListener("submit", async (e) => {
     e.preventDefault();
     if (!canSend) return;
 
     canSend = false;
-    setTimeout(() => canSend = true, 5000);
+
+    const btn = e.target.querySelector("button");
+    btn.disabled = true;
+    btn.innerText = "Відправка...";
 
     const i = e.target.querySelectorAll("input, textarea");
 
     const data = {
+        "ID заявки": generateID(),
+        "Статус": "🟡 Очікує обробки",
         "Ім'я клієнта": i[0].value,
         "Адреса": i[1].value,
         "Тип вантажу": i[2].value,
@@ -210,6 +220,13 @@ document.getElementById("deliveryForm").addEventListener("submit", async (e) => 
     await sendToDiscord("🚚 НОВЕ ЗАМОВЛЕННЯ ДОСТАВКИ", data);
 
     e.target.reset();
+
+    btn.innerText = "✔ Відправлено";
+    setTimeout(() => {
+        btn.innerText = "Створити замовлення";
+        btn.disabled = false;
+        canSend = true;
+    }, 3000);
 });
 
 /* ===== ВОДІЙ ===== */
@@ -218,11 +235,16 @@ document.getElementById("driverForm").addEventListener("submit", async (e) => {
     if (!canSend) return;
 
     canSend = false;
-    setTimeout(() => canSend = true, 5000);
+
+    const btn = e.target.querySelector("button");
+    btn.disabled = true;
+    btn.innerText = "Відправка...";
 
     const i = e.target.querySelectorAll("input, textarea");
 
     const data = {
+        "ID заявки": generateID(),
+        "Статус": "🟡 Очікує обробки",
         "Ім'я замовника": i[0].value,
         "Тип заходу": i[1].value,
         "Дата та час": i[2].value,
@@ -234,10 +256,18 @@ document.getElementById("driverForm").addEventListener("submit", async (e) => {
     await sendToDiscord("🚗 ЗАМОВЛЕННЯ ВОДІЯ НА ЗАХІД", data);
 
     e.target.reset();
+
+    btn.innerText = "✔ Відправлено";
+    setTimeout(() => {
+        btn.innerText = "Замовити водія";
+        btn.disabled = false;
+        canSend = true;
+    }, 3000);
 });
 
 /* ===== DISCORD SEND ===== */
 async function sendToDiscord(title, data) {
+
     const fields = Object.entries(data).map(([key, value]) => ({
         name: key,
         value: value || "немає даних",
@@ -250,7 +280,7 @@ async function sendToDiscord(title, data) {
             color: 0xf59e0b,
             fields: fields,
             footer: {
-                text: "WesternLight Logistics RP"
+                text: "WesternLight Logistics • RP System"
             },
             timestamp: new Date().toISOString()
         }]
@@ -265,7 +295,6 @@ async function sendToDiscord(title, data) {
             body: JSON.stringify(payload)
         });
 
-        alert("Заявку відправлено!");
     } catch (err) {
         alert("Помилка відправки!");
         console.error(err);
