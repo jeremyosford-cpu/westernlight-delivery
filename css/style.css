@@ -146,3 +146,25 @@ label {
     color:#f59e0b;
     font-weight:bold;
 }
+/* ===== NAVBAR ===== */
+.navbar {
+    display:flex;
+    align-items:center;
+    gap:20px;
+    padding:15px 25px;
+    background:rgba(17,24,39,0.9);
+    position:sticky;
+    top:0;
+    backdrop-filter:blur(10px);
+    z-index:1000;
+}
+
+.navbar a {
+    color:white;
+    text-decoration:none;
+    transition:0.2s;
+}
+
+.navbar a:hover {
+    color:#f59e0b;
+}
