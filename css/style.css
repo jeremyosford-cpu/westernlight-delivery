@@ -1,8 +1,15 @@
-body{
-margin:0;
-font-family:Arial, sans-serif;
-background:#0b1220;
-color:white;
+html, body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    font-family: Arial, sans-serif;
+    color: white;
+
+    background: url("../images/hero.png") center center / cover no-repeat;
+    background-attachment: fixed;
 }
 
 .navbar {
@@ -34,13 +41,10 @@ color:white;
 }
 
 .hero {
-    text-align:center;
-    padding:160px 20px;
-    background:url("../images/hero.png") center/cover no-repeat;
-    position:relative;
-    overflow:hidden;
+    position: relative;
+    text-align: center;
+    padding: 160px 20px;
 }
-
 .hero::before {
     content:"";
     position:absolute;
