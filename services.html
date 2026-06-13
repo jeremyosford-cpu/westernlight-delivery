@@ -287,7 +287,7 @@ async function sendToDiscord(title, data) {
     };
 
     try {
-        await fetch(webhookURL, {
+        const res = await fetch(webhookURL, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -295,9 +295,17 @@ async function sendToDiscord(title, data) {
             body: JSON.stringify(payload)
         });
 
+        console.log("Discord status:", res.status);
+
+        if (!res.ok) {
+            const text = await res.text();
+            console.error("Discord error:", res.status, text);
+            alert("Discord error: " + res.status);
+        }
+
     } catch (err) {
-        alert("Помилка відправки!");
-        console.error(err);
+        console.error("FETCH ERROR:", err);
+        alert("Помилка відправки (fetch)");
     }
 }
 </script>
