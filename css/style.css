@@ -11,6 +11,23 @@ body {
     background: url("../images/hero.png") center center / cover no-repeat;
 }
 
+/* NEWS */
+.section h2{
+    color:#f59e0b;
+    margin-bottom:20px;
+}
+
+.card h3{
+    color:#f59e0b;
+    margin-top:0;
+}
+
+.card small{
+    display:block;
+    margin-top:10px;
+    opacity:.6;
+}
+
 .navbar {
     display:flex;
     align-items:center;
