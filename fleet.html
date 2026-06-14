@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Автопарк | WesternLight Logistics</title>
+
+<style>
+html, body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    color: white;
+    background: url("images/hero.png") center/cover fixed;
+}
+
+body::before {
+    content:"";
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,0.7);
+    z-index:-1;
+}
+
+/* NAVBAR */
+.navbar{
+    display:flex;
+    align-items:center;
+    gap:20px;
+    padding:15px 25px;
+    background:rgba(17,24,39,.9);
+    position:sticky;
+    top:0;
+    backdrop-filter:blur(10px);
+}
+
+.logo{
+    font-size:22px;
+    font-weight:bold;
+    color:#f59e0b;
+    margin-right:auto;
+}
+
+.navbar a{
+    color:white;
+    text-decoration:none;
+    transition:.3s;
+}
+
+.navbar a:hover{
+    color:#f59e0b;
+}
+
+/* HEADER */
+.header{
+    text-align:center;
+    padding:80px 20px;
+}
+
+.header h1{
+    font-size:50px;
+    margin:0;
+    color:#f59e0b;
+}
+
+.header p{
+    font-size:18px;
+    opacity:.8;
+}
+
+/* GRID */
+.fleet-grid{
+    max-width:1200px;
+    margin:auto;
+    padding:20px;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+    gap:25px;
+}
+
+/* CARD */
+.vehicle{
+    background:rgba(17,24,39,.9);
+    border-radius:15px;
+    overflow:hidden;
+    transition:.3s;
+    border-left:4px solid #f59e0b;
+}
+
+.vehicle:hover{
+    transform:translateY(-5px);
+    box-shadow:0 0 20px rgba(245,158,11,.4);
+}
+
+.vehicle img{
+    width:100%;
+    height:220px;
+    object-fit:cover;
+}
+
+.vehicle-content{
+    padding:20px;
+}
+
+.vehicle-content h3{
+    color:#f59e0b;
+    margin-top:0;
+}
+
+.stats{
+    margin-top:15px;
+}
+
+.stats div{
+    margin:6px 0;
+    opacity:.9;
+}
+
+/* FOOTER */
+footer{
+    text-align:center;
+    padding:25px;
+    background:rgba(17,24,39,.9);
+    margin-top:40px;
+}
+</style>
+</head>
+<body>
+
+<nav class="navbar">
+    <div class="logo">WesternLight</div>
+
+    <a href="index.html">Головна</a>
+    <a href="services.html">Послуги</a>
+    <a href="jobs.html">Робота</a>
+    <a href="fleet.html">Автопарк</a>
+    <a href="contacts.html">Контакти</a>
+</nav>
+
+<div class="header">
+    <h1>🚚 Автопарк WesternLight</h1>
+    <p>Сучасний транспорт для вантажних та пасажирських перевезень</p>
+</div>
+
+<div class="fleet-grid">
+
+    <div class="vehicle">
+        <img src="images/truck1.jpg" alt="">
+        <div class="vehicle-content">
+            <h3>Phantom Custom</h3>
+            <div class="stats">
+                <div>🚛 Вантажні перевезення</div>
+                <div>📦 До 40 тонн</div>
+                <div>🛣 Далекі маршрути</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="vehicle">
+        <img src="images/van1.jpg" alt="">
+        <div class="vehicle-content">
+            <h3>Speedo Express</h3>
+            <div class="stats">
+                <div>📦 Кур'єрська доставка</div>
+                <div>⚡ Швидке перевезення</div>
+                <div>🏙 Міські маршрути</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="vehicle">
+        <img src="images/bus1.jpg" alt="">
+        <div class="vehicle-content">
+            <h3>Tour Bus Deluxe</h3>
+            <div class="stats">
+                <div>👥 До 30 пасажирів</div>
+                <div>🎉 Корпоративи та заходи</div>
+                <div>🚗 Комфорт класу Premium</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="vehicle">
+        <img src="images/suv1.jpg" alt="">
+        <div class="vehicle-content">
+            <h3>Granger Executive</h3>
+            <div class="stats">
+                <div>💼 VIP перевезення</div>
+                <div>👔 Бізнес-клас</div>
+                <div>⭐ Преміум сервіс</div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<footer>
+    © 2026 WesternLight Logistics
+</footer>
+
+</body>
+</html>
