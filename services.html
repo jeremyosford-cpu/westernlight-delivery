@@ -1,12 +1,16 @@
-<style>
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<title>WesternLight Logistics</title>
 
+<style>
 /* ===== PAGE ===== */
 html, body {
     height: 100%;
     margin: 0;
     font-family: Arial, sans-serif;
     color: white;
-
     background: url("../images/hero.png") center/cover no-repeat;
 }
 
@@ -34,11 +38,6 @@ body::before {
 .navbar a {
     color:white;
     text-decoration:none;
-    transition:0.2s;
-}
-
-.navbar a:hover {
-    color:#f59e0b;
 }
 
 .logo {
@@ -52,32 +51,15 @@ body::before {
     max-width: 900px;
     margin: 40px auto;
     padding: 25px;
-
-    background: rgba(17, 24, 39, 0.85);
+    background: rgba(17,24,39,0.85);
     border-radius: 14px;
-
-    backdrop-filter: blur(10px);
     border-left: 4px solid #f59e0b;
-
-    box-shadow: 0 10px 30px rgba(0,0,0,0.4);
-    animation: fadeIn 0.6s ease;
-}
-
-.section h2 {
-    margin-top:0;
-    color:#f59e0b;
-}
-
-.section h3 {
-    color:#f59e0b;
-    margin-top:20px;
 }
 
 /* ===== FORM ===== */
 label {
     display:block;
     margin-top:12px;
-    margin-bottom:6px;
     color:#f59e0b;
     font-weight:bold;
 }
@@ -85,18 +67,11 @@ label {
 input, textarea {
     width:100%;
     padding:12px;
+    margin-top:5px;
     border:none;
     border-radius:8px;
-    outline:none;
-
     background: rgba(255,255,255,0.08);
     color:white;
-    transition:0.2s;
-}
-
-input:focus, textarea:focus {
-    background: rgba(255,255,255,0.15);
-    box-shadow: 0 0 10px #f59e0b;
 }
 
 /* ===== BUTTON ===== */
@@ -106,206 +81,201 @@ button {
     background:#f59e0b;
     border:none;
     border-radius:10px;
-    font-weight:bold;
     cursor:pointer;
-    transition:0.2s;
 }
 
-button:hover {
-    transform:scale(1.05);
-    box-shadow:0 0 15px #f59e0b;
+/* ===== PANEL ===== */
+.order {
+    background: rgba(255,255,255,0.05);
+    padding: 15px;
+    margin-top: 10px;
+    border-radius: 10px;
+    border-left: 4px solid #f59e0b;
 }
 
-/* ===== ANIMATION ===== */
-@keyframes fadeIn {
-    from {opacity:0; transform:translateY(20px);}
-    to {opacity:1; transform:translateY(0);}
+.order button {
+    margin: 5px 5px 0 0;
+    padding: 6px 10px;
+    font-size: 12px;
 }
-
 </style>
-<!-- NAVBAR -->
-<nav class="navbar">
-    <div class="logo">WesternLight</div>
+</head>
 
-    <a href="index.html">Головна</a>
-    <a href="services.html">Послуги</a>
-    <a href="jobs.html">Робота</a>
-    <a href="fleet.html">Автопарк</a>
-    <a href="contacts.html">Контакти</a>
+<body>
+
+<nav class="navbar">
+<div class="logo">WesternLight</div>
+<a href="#">Головна</a>
+<a href="#">Послуги</a>
+<a href="#">Робота</a>
 </nav>
 
 <div class="section">
-    <h2>Замовлення послуг</h2>
+<h2>🚚 Доставка</h2>
 
-    <!-- ДОСТАВКА -->
-    <h3 style="color:#f59e0b; margin-top:10px;">🚚 Замовити доставку</h3>
+<form id="deliveryForm">
+<label>Ім’я</label>
+<input type="text">
 
-    <form id="deliveryForm">
-        <label>Ім’я клієнта</label>
-        <input type="text" placeholder="Введіть ім’я">
+<label>Адреса</label>
+<input type="text">
 
-        <label>Адреса доставки</label>
-        <input type="text" placeholder="Введіть адресу">
+<label>Тип вантажу</label>
+<input type="text">
 
-        <label>Тип вантажу</label>
-        <input type="text" placeholder="Наприклад: продукти, техніка">
+<label>Коментар</label>
+<textarea></textarea>
 
-        <label>Коментар</label>
-        <textarea placeholder="Додаткова інформація"></textarea>
+<button>Відправити</button>
+</form>
+</div>
 
-        <button type="submit">Створити замовлення</button>
-    </form>
+<div class="section">
+<h2>🚗 Водій</h2>
 
-    <hr style="margin:30px 0; opacity:0.2;">
+<form id="driverForm">
+<label>Ім’я</label>
+<input type="text">
 
-    <!-- ВОДИТЕЛЬ -->
-    <h3 style="color:#f59e0b;">🚗 Замовити водія на захід</h3>
+<label>Подія</label>
+<input type="text">
 
-    <form id="driverForm">
-        <label>Ім’я замовника</label>
-        <input type="text" placeholder="Введіть ім’я">
+<label>Час</label>
+<input type="text">
 
-        <label>Тип заходу</label>
-        <input type="text" placeholder="Весілля / вечірка / RP подія">
+<label>Місце</label>
+<input type="text">
 
-        <label>Дата та час</label>
-        <input type="text" placeholder="20.06.2026 18:00">
+<label>Пасажири</label>
+<input type="number">
 
-        <label>Місце подачі авто</label>
-        <input type="text" placeholder="Адреса">
+<label>Коментар</label>
+<textarea></textarea>
 
-        <label>Кількість пасажирів</label>
-        <input type="number">
+<button>Відправити</button>
+</form>
+</div>
 
-        <label>Коментар</label>
-        <textarea placeholder="Побажання"></textarea>
-
-        <button type="submit">Замовити водія</button>
-    </form>
+<div class="section">
+<h2>📊 Панель диспетчера</h2>
+<div id="orders"></div>
 </div>
 
 <script>
-const webhookURL = "https://discord.com/api/webhooks/1515477953365016727/BQOo30012UyZlAOg0lFUVjnh7UozZH5rQ72zWfqAg4QPzR__ea84PIj6j8dYszlKnSDZ";
+const webhookURL = "ТВОЙ_WEBHOOK";
 
-// анти-спам
 let canSend = true;
+let orders = JSON.parse(localStorage.getItem("orders") || "[]");
 
-/* ===== ID ЗАЯВКИ ===== */
 function generateID() {
     return "WL-" + Math.floor(Math.random() * 100000);
 }
 
-/* ===== ДОСТАВКА ===== */
-document.getElementById("deliveryForm").addEventListener("submit", async (e) => {
-    e.preventDefault();
-    if (!canSend) return;
-
-    canSend = false;
-
-    const btn = e.target.querySelector("button");
-    btn.disabled = true;
-    btn.innerText = "Відправка...";
-
-    const i = e.target.querySelectorAll("input, textarea");
-
-    const data = {
-        "ID заявки": generateID(),
-        "Статус": "🟡 Очікує обробки",
-        "Ім'я клієнта": i[0].value,
-        "Адреса": i[1].value,
-        "Тип вантажу": i[2].value,
-        "Коментар": i[3].value
-    };
-
-    await sendToDiscord("🚚 НОВЕ ЗАМОВЛЕННЯ ДОСТАВКИ", data);
-
-    e.target.reset();
-
-    btn.innerText = "✔ Відправлено";
-    setTimeout(() => {
-        btn.innerText = "Створити замовлення";
-        btn.disabled = false;
-        canSend = true;
-    }, 3000);
-});
-
-/* ===== ВОДІЙ ===== */
-document.getElementById("driverForm").addEventListener("submit", async (e) => {
-    e.preventDefault();
-    if (!canSend) return;
-
-    canSend = false;
-
-    const btn = e.target.querySelector("button");
-    btn.disabled = true;
-    btn.innerText = "Відправка...";
-
-    const i = e.target.querySelectorAll("input, textarea");
-
-    const data = {
-        "ID заявки": generateID(),
-        "Статус": "🟡 Очікує обробки",
-        "Ім'я замовника": i[0].value,
-        "Тип заходу": i[1].value,
-        "Дата та час": i[2].value,
-        "Місце": i[3].value,
-        "Кількість пасажирів": i[4].value,
-        "Коментар": i[5].value
-    };
-
-    await sendToDiscord("🚗 ЗАМОВЛЕННЯ ВОДІЯ НА ЗАХІД", data);
-
-    e.target.reset();
-
-    btn.innerText = "✔ Відправлено";
-    setTimeout(() => {
-        btn.innerText = "Замовити водія";
-        btn.disabled = false;
-        canSend = true;
-    }, 3000);
-});
-
-/* ===== DISCORD SEND ===== */
+/* ===== DISCORD ===== */
 async function sendToDiscord(title, data) {
 
-    const fields = Object.entries(data).map(([key, value]) => ({
-        name: key,
-        value: value || "немає даних",
+    const fields = Object.entries(data).map(([k,v]) => ({
+        name: k,
+        value: v || "немає",
         inline: false
     }));
 
-    const payload = {
-        embeds: [{
-            title: title,
-            color: 0xf59e0b,
-            fields: fields,
-            footer: {
-                text: "WesternLight Logistics • RP System"
-            },
-            timestamp: new Date().toISOString()
-        }]
+    fetch(webhookURL, {
+        method: "POST",
+        headers: {"Content-Type":"application/json"},
+        body: JSON.stringify({
+            embeds:[{
+                title,
+                color: 0xf59e0b,
+                fields,
+                footer:{text:"WesternLight RP"},
+                timestamp:new Date()
+            }]
+        })
+    });
+}
+
+/* ===== SAVE ===== */
+function addOrder(type, data) {
+    orders.push({
+        id: generateID(),
+        type,
+        status:"🟡 Очікує",
+        data
+    });
+
+    localStorage.setItem("orders", JSON.stringify(orders));
+    render();
+}
+
+/* ===== RENDER ===== */
+function render() {
+    const box = document.getElementById("orders");
+    box.innerHTML = "";
+
+    orders.forEach((o,i)=>{
+        box.innerHTML += `
+        <div class="order">
+            <b>ID:</b> ${o.id}<br>
+            <b>Тип:</b> ${o.type}<br>
+            <b>Статус:</b> ${o.status}<br>
+
+            <button onclick="setStatus(${i},'🟡 Очікує')">Очікує</button>
+            <button onclick="setStatus(${i},'🔵 В роботі')">В роботі</button>
+            <button onclick="setStatus(${i},'🟢 Готово')">Готово</button>
+            <button onclick="setStatus(${i},'🔴 Відхилено')">Відхилити</button>
+        </div>`;
+    });
+}
+
+/* ===== STATUS ===== */
+function setStatus(i,status){
+    orders[i].status = status;
+    localStorage.setItem("orders", JSON.stringify(orders));
+    render();
+}
+
+/* ===== FORMS ===== */
+document.getElementById("deliveryForm").addEventListener("submit",(e)=>{
+    e.preventDefault();
+
+    const i = e.target.querySelectorAll("input,textarea");
+
+    const data = {
+        "Ім'я": i[0].value,
+        "Адреса": i[1].value,
+        "Тип": i[2].value,
+        "Коментар": i[3].value
     };
 
-    try {
-        const res = await fetch(webhookURL, {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify(payload)
-        });
+    sendToDiscord("🚚 Доставка", data);
+    addOrder("Доставка", data);
 
-        console.log("Discord status:", res.status);
+    e.target.reset();
+});
 
-        if (!res.ok) {
-            const text = await res.text();
-            console.error("Discord error:", res.status, text);
-            alert("Discord error: " + res.status);
-        }
+document.getElementById("driverForm").addEventListener("submit",(e)=>{
+    e.preventDefault();
 
-    } catch (err) {
-        console.error("FETCH ERROR:", err);
-        alert("Помилка відправки (fetch)");
-    }
-}
+    const i = e.target.querySelectorAll("input,textarea");
+
+    const data = {
+        "Ім'я": i[0].value,
+        "Подія": i[1].value,
+        "Час": i[2].value,
+        "Місце": i[3].value,
+        "Пасажири": i[4].value,
+        "Коментар": i[5].value
+    };
+
+    sendToDiscord("🚗 Водій", data);
+    addOrder("Водій", data);
+
+    e.target.reset();
+});
+
+render();
 </script>
+
+</body>
+</html>
