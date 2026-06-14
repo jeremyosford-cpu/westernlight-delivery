@@ -109,22 +109,22 @@ button {
 <a href="#">Послуги</a>
 <a href="#">Робота</a>
 </nav>
-
+<div class="forms-wrapper">
 <div class="section">
 <h2>🚚 Доставка</h2>
-
+<h3 style="color:#f59e0b; margin-top:10px;">🚚 Замовити доставку</h3>
 <form id="deliveryForm">
 <label>Ім’я</label>
-<input type="text">
+<input type="text" placeholder="Введіть ім’я">
 
 <label>Адреса</label>
-<input type="text">
+<input type="text" placeholder="Введіть адресу">
 
 <label>Тип вантажу</label>
-<input type="text">
+<input type="text" placeholder="Наприклад: продукти, техніка">
 
 <label>Коментар</label>
-<textarea></textarea>
+<textarea placeholder="Додаткова інформація"></textarea>
 
 <button>Відправити</button>
 </form>
@@ -132,37 +132,37 @@ button {
 
 <div class="section">
 <h2>🚗 Водій</h2>
-
+<h3 style="color:#f59e0b;">🚗 Замовити водія на захід</h3>
 <form id="driverForm">
 <label>Ім’я</label>
-<input type="text">
+<input type="text" placeholder="Введіть ім’я">
 
 <label>Подія</label>
-<input type="text">
+<input type="text" placeholder="Весілля / вечірка / RP подія">
 
 <label>Час</label>
-<input type="text">
+<input type="text" placeholder="20.06.2026 18:00">
 
 <label>Місце</label>
-<input type="text">
+<input type="text" placeholder="Адреса">
 
 <label>Пасажири</label>
 <input type="number">
 
 <label>Коментар</label>
-<textarea></textarea>
+<textarea placeholder="Побажання"></textarea>
 
 <button>Відправити</button>
 </form>
 </div>
-
+</div>
 <div class="section">
 <h2>📊 Панель диспетчера</h2>
 <div id="orders"></div>
 </div>
 
 <script>
-const webhookURL = "ТВОЙ_WEBHOOK";
+const webhookURL = "https://discord.com/api/webhooks/1515477953365016727/BQOo30012UyZlAOg0lFUVjnh7UozZH5rQ72zWfqAg4QPzR__ea84PIj6j8dYszlKnSDZ";
 
 let canSend = true;
 let orders = JSON.parse(localStorage.getItem("orders") || "[]");
