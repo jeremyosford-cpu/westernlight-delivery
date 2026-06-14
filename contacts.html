@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Контакти | WesternLight Logistics</title>
+
+<style>
+html, body{
+    margin:0;
+    font-family:Arial, sans-serif;
+    color:white;
+    background:url("images/hero.png") center/cover fixed;
+}
+
+body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.7);
+    z-index:-1;
+}
+
+/* NAVBAR */
+.navbar{
+    display:flex;
+    align-items:center;
+    gap:20px;
+    padding:15px 25px;
+    background:rgba(17,24,39,.9);
+    position:sticky;
+    top:0;
+    backdrop-filter:blur(10px);
+    z-index:1000;
+}
+
+.logo{
+    font-size:22px;
+    font-weight:bold;
+    color:#f59e0b;
+    margin-right:auto;
+}
+
+.navbar a{
+    color:white;
+    text-decoration:none;
+    transition:.3s;
+}
+
+.navbar a:hover{
+    color:#f59e0b;
+}
+
+/* HEADER */
+.header{
+    text-align:center;
+    padding:80px 20px;
+}
+
+.header h1{
+    color:#f59e0b;
+    font-size:52px;
+    margin:0;
+}
+
+.header p{
+    opacity:.8;
+    font-size:18px;
+}
+
+/* CONTACT CARDS */
+.contacts-container{
+    max-width:1200px;
+    margin:auto;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:25px;
+    padding:20px;
+}
+
+.contact-card{
+    background:rgba(17,24,39,.9);
+    padding:25px;
+    border-radius:15px;
+    border-left:4px solid #f59e0b;
+    transition:.3s;
+}
+
+.contact-card:hover{
+    transform:translateY(-5px);
+    box-shadow:0 0 20px rgba(245,158,11,.4);
+}
+
+.contact-card h3{
+    color:#f59e0b;
+    margin-top:0;
+}
+
+/* FORM */
+.contact-form{
+    max-width:800px;
+    margin:40px auto;
+    background:rgba(17,24,39,.9);
+    padding:30px;
+    border-radius:15px;
+    border-left:4px solid #f59e0b;
+}
+
+.contact-form h2{
+    color:#f59e0b;
+    margin-top:0;
+}
+
+.contact-form label{
+    display:block;
+    margin-top:15px;
+    margin-bottom:5px;
+    color:#f59e0b;
+    font-weight:bold;
+}
+
+.contact-form input,
+.contact-form textarea{
+    width:100%;
+    box-sizing:border-box;
+    padding:12px;
+    border:none;
+    border-radius:8px;
+    background:rgba(255,255,255,.08);
+    color:white;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus{
+    outline:none;
+    box-shadow:0 0 10px #f59e0b;
+}
+
+.contact-form button{
+    margin-top:20px;
+    padding:12px 20px;
+    background:#f59e0b;
+    border:none;
+    border-radius:10px;
+    font-weight:bold;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.contact-form button:hover{
+    transform:scale(1.05);
+}
+
+.online{
+    color:#22c55e;
+    font-weight:bold;
+}
+
+/* FOOTER */
+footer{
+    text-align:center;
+    padding:25px;
+    background:rgba(17,24,39,.9);
+    margin-top:40px;
+}
+</style>
+</head>
+<body>
+
+<nav class="navbar">
+    <div class="logo">WesternLight</div>
+
+    <a href="index.html">Головна</a>
+    <a href="services.html">Послуги</a>
+    <a href="jobs.html">Робота</a>
+    <a href="fleet.html">Автопарк</a>
+    <a href="contacts.html">Контакти</a>
+</nav>
+
+<div class="header">
+    <h1>📞 Контакти WesternLight</h1>
+    <p>Ми завжди готові відповісти на ваші запитання</p>
+</div>
+
+<div class="contacts-container">
+
+    <div class="contact-card">
+        <h3>🏢 Головний офіс</h3>
+        <p>Los Santos, San Andreas</p>
+        <p>WesternLight Logistics Center</p>
+    </div>
+
+    <div class="contact-card">
+        <h3>📱 Диспетчерська</h3>
+        <p>Телефон: +1 (555) 123-4567</p>
+        <p class="online">🟢 Онлайн 24/7</p>
+    </div>
+
+    <div class="contact-card">
+        <h3>💬 Discord</h3>
+        <p>WesternLight Community</p>
+        <p>discord.gg/westernlight</p>
+    </div>
+
+    <div class="contact-card">
+        <h3>📧 Email</h3>
+        <p>support@westernlight.com</p>
+        <p>dispatch@westernlight.com</p>
+    </div>
+
+</div>
+
+<div class="contact-form">
+
+    <h2>✉️ Зворотний зв'язок</h2>
+
+    <form id="contactForm">
+
+        <label>Ваше ім'я</label>
+        <input type="text" placeholder="Введіть ім'я">
+
+        <label>Email або Discord</label>
+        <input type="text" placeholder="Ваш контакт">
+
+        <label>Тема звернення</label>
+        <input type="text" placeholder="Наприклад: Співпраця">
+
+        <label>Повідомлення</label>
+        <textarea rows="6" placeholder="Ваше повідомлення"></textarea>
+
+        <button type="submit">Надіслати повідомлення</button>
+
+    </form>
+
+</div>
+
+<footer>
+    © 2026 WesternLight Logistics. Усі права захищені.
+</footer>
+<script>
+const webhookURL = "https://discord.com/api/webhooks/1515614768512372767/A6anHBa_CwwkBIJAHQk-Mq9_sno1r23yx4ATgYGmbRLxTPTCeW88JKrSOKECKrZLyc-e";
+
+document.getElementById("contactForm").addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    const btn = e.target.querySelector("button");
+    btn.disabled = true;
+    btn.innerText = "Відправка...";
+
+    const inputs = e.target.querySelectorAll("input, textarea");
+
+    const payload = {
+        embeds: [{
+            title: "📞 НОВЕ ЗВЕРНЕННЯ З САЙТУ",
+            color: 0xf59e0b,
+
+            fields: [
+                {
+                    name: "👤 Ім'я",
+                    value: inputs[0].value || "Не вказано",
+                    inline: false
+                },
+                {
+                    name: "📧 Email / Discord",
+                    value: inputs[1].value || "Не вказано",
+                    inline: false
+                },
+                {
+                    name: "📋 Тема",
+                    value: inputs[2].value || "Не вказано",
+                    inline: false
+                },
+                {
+                    name: "💬 Повідомлення",
+                    value: inputs[3].value || "Не вказано",
+                    inline: false
+                }
+            ],
+
+            footer: {
+                text: "WesternLight Logistics • Contact Form"
+            },
+
+            timestamp: new Date().toISOString()
+        }]
+    };
+
+    try {
+
+        const res = await fetch(webhookURL, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(payload)
+        });
+
+        if (res.ok) {
+            btn.innerText = "✔ Відправлено";
+            e.target.reset();
+        } else {
+            btn.innerText = "Помилка";
+            console.error(await res.text());
+        }
+
+    } catch(err) {
+        console.error(err);
+        btn.innerText = "Помилка";
+    }
+
+    setTimeout(() => {
+        btn.disabled = false;
+        btn.innerText = "Надіслати повідомлення";
+    }, 3000);
+});
+</script>
+</body>
+</html>
