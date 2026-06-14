@@ -114,7 +114,63 @@ body::before {
     margin:6px 0;
     opacity:.9;
 }
+/* ===== FLEET STATS ===== */
+.fleet-stats{
+    display:flex;
+    justify-content:center;
+    gap:20px;
+    flex-wrap:wrap;
+    margin-bottom:40px;
+}
 
+.stat-card{
+    background:rgba(17,24,39,.9);
+    padding:20px 30px;
+    border-radius:15px;
+    text-align:center;
+    min-width:180px;
+    border-left:4px solid #f59e0b;
+}
+
+.stat-card h3{
+    color:#f59e0b;
+    font-size:32px;
+    margin:0;
+}
+
+/* ===== STATUS ===== */
+.status{
+    display:inline-block;
+    padding:8px 12px;
+    border-radius:8px;
+    font-weight:bold;
+    margin:10px 0;
+}
+
+.free{
+    background:rgba(34,197,94,.2);
+    border:1px solid #22c55e;
+    color:#22c55e;
+}
+
+.route{
+    background:rgba(59,130,246,.2);
+    border:1px solid #3b82f6;
+    color:#3b82f6;
+}
+
+.repair{
+    background:rgba(239,68,68,.2);
+    border:1px solid #ef4444;
+    color:#ef4444;
+}
+
+.driver{
+    margin-top:10px;
+    padding:10px;
+    border-radius:8px;
+    background:rgba(255,255,255,.05);
+}
 /* FOOTER */
 footer{
     text-align:center;
@@ -140,25 +196,67 @@ footer{
     <h1>🚚 Автопарк WesternLight</h1>
     <p>Сучасний транспорт для вантажних та пасажирських перевезень</p>
 </div>
+<div class="fleet-stats">
 
+    <div class="stat-card">
+        <h3>4</h3>
+        <span>Всього транспорту</span>
+    </div>
+
+    <div class="stat-card">
+        <h3>2</h3>
+        <span>Вільні</span>
+    </div>
+
+    <div class="stat-card">
+        <h3>1</h3>
+        <span>На маршруті</span>
+    </div>
+
+    <div class="stat-card">
+        <h3>1</h3>
+        <span>На ремонті</span>
+    </div>
+
+</div>
 <div class="fleet-grid">
 
     <div class="vehicle">
         <img src="images/truck1.jpg" alt="">
+
         <div class="vehicle-content">
             <h3>Phantom Custom</h3>
+
+            <div class="status route">
+                🔵 На маршруті
+            </div>
+
+            <div class="driver">
+                👨‍✈️ Водій: Jeremy Osford
+            </div>
+
             <div class="stats">
                 <div>🚛 Вантажні перевезення</div>
                 <div>📦 До 40 тонн</div>
-                <div>🛣 Далекі маршрути</div>
+                <div>🛣 Los Santos → Paleto Bay</div>
             </div>
         </div>
     </div>
 
     <div class="vehicle">
         <img src="images/van1.jpg" alt="">
+
         <div class="vehicle-content">
             <h3>Speedo Express</h3>
+
+            <div class="status free">
+                🟢 Вільний
+            </div>
+
+            <div class="driver">
+                👨‍✈️ Водій: Не призначений
+            </div>
+
             <div class="stats">
                 <div>📦 Кур'єрська доставка</div>
                 <div>⚡ Швидке перевезення</div>
@@ -169,15 +267,49 @@ footer{
 
     <div class="vehicle">
         <img src="images/bus1.jpg" alt="">
+
         <div class="vehicle-content">
             <h3>Tour Bus Deluxe</h3>
+
+            <div class="status free">
+                🟢 Вільний
+            </div>
+
+            <div class="driver">
+                👨‍✈️ Водій: Mike Wilson
+            </div>
+
             <div class="stats">
                 <div>👥 До 30 пасажирів</div>
-                <div>🎉 Корпоративи та заходи</div>
-                <div>🚗 Комфорт класу Premium</div>
+                <div>🎉 Корпоративні заходи</div>
+                <div>⭐ Premium Service</div>
             </div>
         </div>
     </div>
+
+    <div class="vehicle">
+        <img src="images/suv1.jpg" alt="">
+
+        <div class="vehicle-content">
+            <h3>Granger Executive</h3>
+
+            <div class="status repair">
+                🔴 Ремонт
+            </div>
+
+            <div class="driver">
+                👨‍🔧 Технічний відділ
+            </div>
+
+            <div class="stats">
+                <div>💼 VIP перевезення</div>
+                <div>👔 Бізнес-клас</div>
+                <div>🔧 ТО до 15.06.2026</div>
+            </div>
+        </div>
+    </div>
+
+</div>
 
     <div class="vehicle">
         <img src="images/suv1.jpg" alt="">
