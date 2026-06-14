@@ -98,6 +98,30 @@ button {
     padding: 6px 10px;
     font-size: 12px;
 }
+
+        .forms-wrapper {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 40px;
+    flex-wrap: wrap; /* чтобы на телефоне не ломалось */
+}
+
+.forms-wrapper .section {
+    width: 45%;
+    min-width: 320px;
+}
+    @media (max-width: 900px) {
+    .forms-wrapper {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .forms-wrapper .section {
+        width: 90%;
+    }
+    }
 </style>
 </head>
 
